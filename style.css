@@ -1,0 +1,1551 @@
+/* =========================================================
+   LUDO — STYLE.CSS
+   ========================================================= */
+
+:root {
+  --cream: #F4E9CE;
+  --paper: #FBF6E9;
+
+  --wood-dark: #241608;
+  --wood-mid: #3A2513;
+  --wood-light: #5A3A1E;
+  --wood-black: #1C1206;
+
+  --red: #D6455A;
+  --red-dark: #A6323F;
+
+  --green: #279966;
+  --green-dark: #1C7350;
+
+  --yellow: #F0B429;
+  --yellow-dark: #C8930F;
+
+  --blue: #3068D6;
+  --blue-dark: #204C9E;
+
+  --board-size: 540px;
+
+  --shadow:
+    0 14px 30px rgba(0, 0, 0, 0.38);
+
+  --soft-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+
+  background:
+    radial-gradient(
+      ellipse at top,
+      #4A2F16 0%,
+      #2A1A0B 48%,
+      #130C04 100%
+    );
+
+  color: var(--paper);
+
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 20px 14px 45px;
+}
+
+
+/* =========================================================
+   GENERAL TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+.display {
+  font-family: "Baloo 2", sans-serif;
+}
+
+button {
+  font-family: "Nunito", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+#app {
+  width: 100%;
+  max-width: 1080px;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.title-row h1 {
+  margin: 0;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 34px;
+  line-height: 1;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  color: var(--paper);
+
+  text-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 -2px 3px rgba(0, 0, 0, 0.35),
+    0 0 0 2px rgba(255, 255, 255, 0.12);
+}
+
+.red-dot {
+  background: var(--red);
+}
+
+.green-dot {
+  background: var(--green);
+}
+
+.yellow-dot {
+  background: var(--yellow);
+}
+
+.blue-dot {
+  background: var(--blue);
+}
+
+
+/* =========================================================
+   SETUP SCREEN
+   ========================================================= */
+
+.setup-card {
+  width: 100%;
+  max-width: 530px;
+
+  margin: 0 auto;
+
+  background:
+    linear-gradient(
+      145deg,
+      #432916,
+      #30200F
+    );
+
+  border: 2px solid var(--wood-light);
+
+  border-radius: 20px;
+
+  padding: 28px 23px;
+
+  box-shadow: var(--shadow);
+}
+
+.setup-card h2 {
+  margin: 0 0 5px;
+
+  font-size: 24px;
+  line-height: 1.2;
+
+  font-weight: 800;
+}
+
+.setup-card .sub {
+  margin: 0 0 22px;
+
+  color: var(--paper);
+
+  opacity: 0.78;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   FIELD LABEL
+   ========================================================= */
+
+.field-label {
+  margin: 19px 0 9px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.2px;
+
+  opacity: 0.68;
+}
+
+
+/* =========================================================
+   PLAYER COUNT
+   ========================================================= */
+
+.choice-row {
+  display: flex;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.choice-btn {
+  flex: 1;
+
+  min-width: 70px;
+
+  padding: 12px 10px;
+
+  border-radius: 12px;
+
+  border: 2px solid var(--wood-light);
+
+  background: var(--wood-black);
+
+  color: var(--paper);
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.choice-btn:hover {
+  background: #3A2512;
+}
+
+.choice-btn:active {
+  transform: translateY(1px);
+}
+
+.choice-btn.active {
+  background: var(--yellow);
+
+  color: #2C1C0D;
+
+  border-color: var(--yellow-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   PLAYER ROWS
+   ========================================================= */
+
+.player-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  padding: 10px 12px;
+
+  margin-bottom: 10px;
+
+  background: var(--wood-black);
+
+  border: 2px solid var(--wood-light);
+
+  border-radius: 13px;
+}
+
+.player-name {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  font-size: 14px;
+
+  font-weight: 800;
+}
+
+.swatch {
+  width: 19px;
+  height: 19px;
+
+  flex: 0 0 auto;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 -3px 4px rgba(0, 0, 0, 0.35),
+    0 0 0 2px rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================================================
+   PLAYER TOGGLE
+   ========================================================= */
+
+.toggle {
+  display: flex;
+
+  align-items: center;
+
+  gap: 2px;
+
+  padding: 3px;
+
+  background: #120B03;
+
+  border-radius: 20px;
+}
+
+.toggle button {
+  border: none;
+
+  padding: 6px 10px;
+
+  border-radius: 16px;
+
+  background: transparent;
+
+  color: var(--paper);
+
+  opacity: 0.6;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.toggle button.active {
+  background: var(--paper);
+
+  color: #2C1C0D;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   START BUTTON
+   ========================================================= */
+
+.start-btn {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #F5CF69,
+      var(--yellow-dark)
+    );
+
+  color: #2C1C0D;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 19px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 0 #8A6810,
+    0 9px 18px rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform 0.1s ease;
+}
+
+.start-btn:hover {
+  filter: brightness(1.05);
+}
+
+.start-btn:active {
+  transform: translateY(4px);
+
+  box-shadow:
+    0 2px 0 #8A6810;
+}
+
+
+/* =========================================================
+   GAME LAYOUT
+   ========================================================= */
+
+.game-wrap {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  gap: 24px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   BOARD
+   ========================================================= */
+
+.board-col {
+  flex: 0 0 auto;
+
+  width: min(
+    var(--board-size),
+    94vw
+  );
+}
+
+.board-frame {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  padding: 8px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #6D4524,
+      #2A190B
+    );
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+
+#boardSvg {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  overflow: visible;
+
+  border-radius: 18px;
+
+  filter:
+    drop-shadow(
+      0 8px 10px rgba(0, 0, 0, 0.28)
+    );
+}
+
+
+/* =========================================================
+   SVG BOARD ELEMENTS
+   ========================================================= */
+
+#boardSvg text {
+  user-select: none;
+}
+
+.board-cell {
+  shape-rendering: geometricPrecision;
+}
+
+.board-path {
+  stroke: rgba(70, 40, 15, 0.42);
+
+  stroke-width: 1;
+}
+
+.board-safe {
+  stroke: rgba(255, 255, 255, 0.18);
+
+  stroke-width: 1.5;
+}
+
+.board-home {
+  stroke: rgba(80, 45, 15, 0.5);
+
+  stroke-width: 2;
+}
+
+
+/* =========================================================
+   YARDS / HOMES
+   ========================================================= */
+
+.yard-area {
+  stroke-width: 2;
+}
+
+.yard-decoration {
+  pointer-events: none;
+}
+
+.yard-slot {
+  stroke: rgba(255, 255, 255, 0.24);
+
+  stroke-width: 2;
+}
+
+
+/*
+   These classes allow the JavaScript to use
+   images later for each team's home.
+*/
+
+.team-home-image {
+  pointer-events: none;
+
+  object-fit: cover;
+}
+
+.team-home-overlay {
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PATH COLORS
+   ========================================================= */
+
+.path-red {
+  fill: var(--red);
+}
+
+.path-green {
+  fill: var(--green);
+}
+
+.path-yellow {
+  fill: var(--yellow);
+}
+
+.path-blue {
+  fill: var(--blue);
+}
+
+
+/* =========================================================
+   HOME LANES
+   ========================================================= */
+
+.home-lane-red {
+  fill: var(--red);
+
+  stroke: var(--red-dark);
+}
+
+.home-lane-green {
+  fill: var(--green);
+
+  stroke: var(--green-dark);
+}
+
+.home-lane-yellow {
+  fill: var(--yellow);
+
+  stroke: var(--yellow-dark);
+}
+
+.home-lane-blue {
+  fill: var(--blue);
+
+  stroke: var(--blue-dark);
+}
+
+
+/* =========================================================
+   TOKEN
+   ========================================================= */
+
+.cell-token {
+  cursor: default;
+
+  transition:
+    transform 0.18s ease;
+}
+
+.cell-token.movable {
+  cursor: pointer;
+}
+
+.cell-token.movable:hover {
+  transform: scale(1.08);
+}
+
+.token-shadow {
+  fill: rgba(0, 0, 0, 0.25);
+}
+
+.token-body {
+  stroke: rgba(255, 255, 255, 0.58);
+
+  stroke-width: 2;
+}
+
+.token-highlight {
+  fill: rgba(255, 255, 255, 0.35);
+
+  pointer-events: none;
+}
+
+.token-number {
+  font-family: "Baloo 2", sans-serif;
+
+  font-weight: 800;
+
+  font-size: 11px;
+
+  fill: white;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   MOVABLE TOKEN HIGHLIGHT
+   ========================================================= */
+
+.movable-ring {
+  fill: none;
+
+  stroke: #FFFFFF;
+
+  stroke-width: 3;
+
+  opacity: 0.45;
+
+  animation:
+    movablePulse 1.1s ease-in-out infinite;
+}
+
+@keyframes movablePulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .movable-ring {
+    animation: none;
+
+    opacity: 0.7;
+  }
+}
+
+
+/* =========================================================
+   CENTER DICE AREA
+   ========================================================= */
+
+.center-dice {
+  cursor: pointer;
+
+  transform-origin: center;
+
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.center-dice:hover {
+  transform: scale(1.035);
+
+  filter:
+    brightness(1.08)
+    drop-shadow(
+      0 5px 7px rgba(0, 0, 0, 0.3)
+    );
+}
+
+.center-dice:active {
+  transform: scale(0.97);
+}
+
+.center-dice.disabled {
+  cursor: not-allowed;
+
+  opacity: 0.55;
+
+  filter: grayscale(0.3);
+}
+
+.center-dice-bg {
+  fill: #241608;
+
+  stroke: #F4E9CE;
+
+  stroke-width: 2;
+}
+
+.center-dice-label {
+  fill: #F4E9CE;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  pointer-events: none;
+}
+
+
+/*
+   Individual dice inside the center of
+   the Ludo board.
+*/
+
+.board-die {
+  fill: var(--paper);
+
+  stroke: #CBBF9D;
+
+  stroke-width: 1.5;
+
+  filter:
+    drop-shadow(
+      0 3px 3px rgba(0, 0, 0, 0.3)
+    );
+}
+
+.board-die-pip {
+  fill: #241608;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   DICE ROLL ANIMATION
+   ========================================================= */
+
+.center-dice.rolling {
+  animation: diceShake 0.55s ease;
+}
+
+@keyframes diceShake {
+
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  15% {
+    transform: rotate(-8deg) scale(1.03);
+  }
+
+  30% {
+    transform: rotate(8deg) scale(1.05);
+  }
+
+  45% {
+    transform: rotate(-7deg) scale(1.04);
+  }
+
+  60% {
+    transform: rotate(6deg) scale(1.03);
+  }
+
+  75% {
+    transform: rotate(-3deg) scale(1.02);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+
+/* =========================================================
+   SIDE PANEL
+   ========================================================= */
+
+.panel {
+  flex: 1 1 290px;
+
+  width: 100%;
+
+  max-width: 330px;
+
+  padding: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #432916,
+      #30200F
+    );
+
+  border: 2px solid var(--wood-light);
+
+  border-radius: 19px;
+
+  box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   TURN BANNER
+   ========================================================= */
+
+.turn-banner {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 11px 12px;
+
+  margin-bottom: 15px;
+
+  background: var(--wood-black);
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.turn-banner .swatch {
+  width: 22px;
+  height: 22px;
+}
+
+.turn-banner .txt {
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+.turn-banner .tag {
+  margin-left: auto;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  opacity: 0.58;
+}
+
+
+/* =========================================================
+   DICE PANEL
+   ========================================================= */
+
+.dice-panel {
+  padding: 14px;
+
+  background: #241608;
+
+  border-radius: 14px;
+
+  margin-bottom: 14px;
+
+  border:
+    1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dice-title {
+  margin-bottom: 10px;
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+.dice-display {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+}
+
+
+/* =========================================================
+   SIDE-PANEL DICE
+   ========================================================= */
+
+.die {
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  grid-template-rows:
+    repeat(3, 1fr);
+
+  padding: 8px;
+
+  background: var(--paper);
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 5px 0 #CBBF9D,
+    0 8px 13px rgba(0, 0, 0, 0.35);
+}
+
+.die .pip {
+  width: 9px;
+  height: 9px;
+
+  align-self: center;
+  justify-self: center;
+
+  border-radius: 50%;
+
+  background: transparent;
+}
+
+.die .pip.on {
+  background: #241608;
+}
+
+
+/* =========================================================
+   SIDE DICE ANIMATION
+   ========================================================= */
+
+.die.rolling {
+  animation: sideDiceShake 0.55s ease;
+}
+
+@keyframes sideDiceShake {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-12deg);
+  }
+
+  50% {
+    transform: rotate(10deg);
+  }
+
+  75% {
+    transform: rotate(-6deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.dice-hint {
+  margin: 11px 0 0;
+
+  text-align: center;
+
+  font-size: 11.5px;
+
+  line-height: 1.4;
+
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-line {
+  min-height: 22px;
+
+  margin-bottom: 14px;
+
+  font-size: 13.5px;
+
+  line-height: 1.45;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   LOG
+   ========================================================= */
+
+.log-label {
+  margin-bottom: 7px;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.2px;
+
+  opacity: 0.6;
+}
+
+#log {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  max-height: 155px;
+
+  overflow-y: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 12.5px;
+
+  opacity: 0.84;
+}
+
+#log li {
+  padding-left: 9px;
+
+  border-left:
+    3px solid var(--wood-light);
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+#log::-webkit-scrollbar {
+  width: 5px;
+}
+
+#log::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#log::-webkit-scrollbar-thumb {
+  background: #684624;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   RULES BUTTON
+   ========================================================= */
+
+.rules-toggle {
+  margin-top: 15px;
+
+  padding: 0;
+
+  border: none;
+
+  background: none;
+
+  color: var(--paper);
+
+  font-size: 12.5px;
+
+  font-weight: 700;
+
+  text-decoration: underline;
+
+  opacity: 0.58;
+
+  cursor: pointer;
+}
+
+.rules-toggle:hover {
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   RULES BOX
+   ========================================================= */
+
+.rules-box {
+  display: none;
+
+  margin-top: 10px;
+
+  padding: 11px 12px;
+
+  background: var(--wood-black);
+
+  border-radius: 11px;
+
+  font-size: 12px;
+
+  line-height: 1.55;
+
+  opacity: 0.86;
+}
+
+.rules-box.show {
+  display: block;
+}
+
+.rules-box ul {
+  margin: 0;
+
+  padding-left: 18px;
+}
+
+.rules-box li {
+  margin-bottom: 5px;
+}
+
+.rules-box li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   NEW GAME BUTTON
+   ========================================================= */
+
+.new-game-btn {
+  width: 100%;
+
+  margin-top: 13px;
+
+  padding: 10px;
+
+  border: 2px solid var(--wood-light);
+
+  border-radius: 11px;
+
+  background: #2C1C0D;
+
+  color: var(--paper);
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease;
+}
+
+.new-game-btn:hover {
+  background: #3A2512;
+}
+
+
+/* =========================================================
+   WIN OVERLAY
+   ========================================================= */
+
+.win-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background:
+    rgba(10, 6, 2, 0.76);
+
+  backdrop-filter: blur(5px);
+}
+
+.win-overlay.show {
+  display: flex;
+}
+
+
+/* =========================================================
+   WIN CARD
+   ========================================================= */
+
+.win-card {
+  width: 100%;
+
+  max-width: 330px;
+
+  padding: 32px 28px;
+
+  text-align: center;
+
+  background: var(--paper);
+
+  color: #241608;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.55);
+
+  animation:
+    winCardIn 0.35s ease;
+}
+
+@keyframes winCardIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.winner-icon {
+  font-size: 42px;
+
+  margin-bottom: 5px;
+}
+
+.win-card h2 {
+  margin: 0 0 5px;
+
+  font-size: 27px;
+
+  font-weight: 800;
+}
+
+.win-card p {
+  margin: 0 0 21px;
+
+  font-size: 14px;
+
+  opacity: 0.72;
+}
+
+.win-card button {
+  padding: 12px 27px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--wood-dark);
+
+  color: var(--paper);
+
+  font-family: "Baloo 2", sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 0 #120B04;
+}
+
+.win-card button:active {
+  transform: translateY(2px);
+
+  box-shadow:
+    0 3px 0 #120B04;
+}
+
+
+/* =========================================================
+   COLOR UTILITIES
+   ========================================================= */
+
+.color-red {
+  background: var(--red);
+}
+
+.color-green {
+  background: var(--green);
+}
+
+.color-yellow {
+  background: var(--yellow);
+}
+
+.color-blue {
+  background: var(--blue);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.75);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .game-wrap {
+    gap: 18px;
+  }
+
+  .panel {
+    max-width: 480px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    padding:
+      14px 9px 30px;
+  }
+
+  .title-row {
+    margin-bottom: 14px;
+  }
+
+  .title-row h1 {
+    font-size: 29px;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .setup-card {
+    padding: 22px 17px;
+
+    border-radius: 17px;
+  }
+
+  .setup-card h2 {
+    font-size: 21px;
+  }
+
+  .game-wrap {
+    gap: 15px;
+  }
+
+  .board-col {
+    width: 96vw;
+
+    max-width: 540px;
+  }
+
+  .board-frame {
+    padding: 5px;
+
+    border-radius: 18px;
+  }
+
+  .panel {
+    max-width: 540px;
+
+    border-radius: 17px;
+
+    padding: 15px;
+  }
+
+  .turn-banner {
+    margin-bottom: 12px;
+  }
+
+  .dice-display {
+    gap: 12px;
+  }
+
+  .die {
+    width: 54px;
+    height: 54px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  body {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .title-row h1 {
+    font-size: 26px;
+  }
+
+  .setup-card {
+    padding: 20px 14px;
+  }
+
+  .player-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .toggle {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .toggle button {
+    flex: 1;
+  }
+
+  .panel {
+    padding: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.001ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.001ms !important;
+  }
+
+}
